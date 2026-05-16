@@ -150,20 +150,22 @@
       <div class="section-line"></div>
     </div>
     <p class="contact-desc">有问题或合作意向，欢迎留言。</p>
-    <form id="contact-form">
+    <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
+      <p class="hidden" style="display:none"><label>不要填写这个 <input name="bot-field" /></label></p>
       <div class="form-row">
         <div class="form-group">
           <label>NAME</label>
-          <input type="text" placeholder="你的名字" required />
+          <input type="text" name="name" placeholder="你的名字" required />
         </div>
         <div class="form-group">
           <label>EMAIL</label>
-          <input type="email" placeholder="邮箱地址" required />
+          <input type="email" name="email" placeholder="邮箱地址" required />
         </div>
       </div>
       <div class="form-group">
         <label>MESSAGE</label>
-        <textarea placeholder="留言内容..." rows="5" required></textarea>
+        <textarea name="message" placeholder="留言内容..." rows="5" required></textarea>
       </div>
       <button type="submit" class="btn-submit">
         <span>SEND</span>
