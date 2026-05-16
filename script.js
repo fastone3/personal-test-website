@@ -164,25 +164,28 @@ const fadeObs = new IntersectionObserver(
 );
 fadeEls.forEach((el) => fadeObs.observe(el));
 
-// ========== 联系表单 ==========
+// ========== 联系表单（Netlify Forms AJAX 提交） ==========
 const form = document.getElementById("contact-form");
 const formMsg = document.getElementById("form-msg");
 
 if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    const name = form.querySelector('input[type="text"]').value.trim();
-    const email = form.querySelector('input[type="email"]').value.trim();
-    const msg = form.querySelector("textarea").value.trim();
+    const formData = new FormData(form);
 
-    if (!name || !email || !msg) {
-      formMsg.textContent = "> 请填写所有字段";
-      formMsg.style.color = "#f85149";
-      return;
-    }
-
-    formMsg.textContent = "> 消息已收到，谢谢！（演示模式）";
-    formMsg.style.color = "#3fb950";
-    form.reset();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        formMsg.textContent = "> 消息已发送，谢谢！";
+        formMsg.style.color = "#3fb950";
+        form.reset();
+      })
+      .catch(() => {
+        formMsg.textContent = "> 发送失败，请稍后重试";
+        formMsg.style.color = "#f85149";
+      });
   });
 }
