@@ -3,84 +3,187 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>个人测试网站</title>
+  <title>IC Engineer | 工控工程师</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+SC:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- 粒子背景 -->
+  <canvas id="particles"></canvas>
+
   <!-- 导航栏 -->
-  <nav>
-    <div class="nav-brand">MySite</div>
-    <div class="nav-links">
-      <a href="#home">首页</a>
-      <a href="#about">关于</a>
-      <a href="#projects">项目</a>
-      <a href="#contact">联系</a>
+  <nav id="navbar">
+    <div class="nav-brand">
+      <span class="bracket">&lt;</span>IC<span class="dot">.</span>Dev<span class="bracket">/&gt;</span>
     </div>
+    <div class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- 首页 Hero -->
   <section id="home" class="hero">
-    <h1>你好，我是 <span class="highlight">开发者</span></h1>
-    <p class="subtitle">工控软件 · PLC开发 · 网站开发</p>
-    <a href="#about" class="btn">了解更多</a>
+    <div class="hero-content">
+      <div class="terminal-line">
+        <span class="prompt">$</span> <span class="typed" id="typed-text"></span><span class="cursor">|</span>
+      </div>
+      <h1>Industrial Control<br/><span class="accent">Engineer</span></h1>
+      <p class="subtitle">PLC / HMI / SCADA / Electrical Design</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">6+</span>
+          <span class="stat-label">平台</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">项目</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">探索</span>
+        </div>
+      </div>
+      <a href="#about" class="btn-outline">EXPLORE ↓</a>
+    </div>
   </section>
 
   <!-- 关于 -->
   <section id="about" class="section">
-    <h2>关于我</h2>
-    <p>专注于 PLC/工控软件开发，熟悉 Codesys、汇川、西门子、三菱、欧姆龙等主流平台。同时喜欢折腾网站开发、自动化工具和效率提升。</p>
-    <div class="cards">
-      <div class="card">
-        <h3>🐾 工控开发</h3>
-        <p>PLC程序设计、HMI开发、电气系统设计</p>
+    <div class="section-header">
+      <span class="section-tag">// ABOUT</span>
+      <h2>关于我</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>专注于工业控制系统开发，覆盖船舶工控、产线自动化、PCS推进系统等场景。熟悉 Codesys、汇川、西门子、三菱、欧姆龙等主流 PLC 平台，擅长从 PRD 到调试的完整工程链路。</p>
+        <p>同时活跃于网站开发、AI 工具链和效率自动化领域，持续将工程思维融入软件实践。</p>
       </div>
-      <div class="card">
-        <h3>🌐 网站开发</h3>
-        <p>HTML/CSS/JS、React、Node.js</p>
+      <div class="skill-bars">
+        <div class="skill-item">
+          <div class="skill-label"><span>PLC / 工控开发</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="--w: 95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>电气系统设计</span><span class="skill-pct">88%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="--w: 88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Web 开发</span><span class="skill-pct">75%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="--w: 75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>AI / 自动化工具</span><span class="skill-pct">82%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="--w: 82%"></div></div>
+        </div>
       </div>
-      <div class="card">
-        <h3>🤖 自动化</h3>
-        <p>Python脚本、AI助手、效率工具</p>
-      </div>
+    </div>
+    <div class="tech-stack">
+      <span class="tech-tag">Codesys</span>
+      <span class="tech-tag">Siemens</span>
+      <span class="tech-tag">Mitsubishi</span>
+      <span class="tech-tag">Omron</span>
+      <span class="tech-tag">Inovance</span>
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">Node.js</span>
+      <span class="tech-tag">Docker</span>
     </div>
   </section>
 
   <!-- 项目 -->
-  <section id="projects" class="section alt">
-    <h2>项目展示</h2>
-    <div class="cards">
-      <div class="card">
+  <section id="projects" class="section section-dark">
+    <div class="section-header">
+      <span class="section-tag">// PROJECTS</span>
+      <h2>项目展示</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="project-grid">
+      <article class="project-card" data-tag="PLC">
+        <div class="project-index">01</div>
         <h3>PLC-PRD-Writer</h3>
-        <p>工控系统PRD自动编写工具，支持多平台FB设计说明生成。</p>
-      </div>
-      <div class="card">
+        <p>工控系统 PRD 自动编写工具，覆盖船舶工控、产线自动化等场景，支持多平台 FB 设计说明生成，含 IO 点位表、联锁逻辑表、Mermaid 状态机。</p>
+        <div class="project-tags">
+          <span>Codesys</span><span>PLC</span><span>PRD</span>
+        </div>
+      </article>
+      <article class="project-card" data-tag="AI">
+        <div class="project-index">02</div>
         <h3>Company PPT Assistant</h3>
-        <p>基于公司模板自动生成、修改、美化PPT的AI技能。</p>
-      </div>
-      <div class="card">
+        <p>基于公司模板自动生成、修改、美化 PPT 的 AI 技能，采用 python-pptx 复制幻灯片保留设计风格，XML 级精确控制。</p>
+        <div class="project-tags">
+          <span>Python</span><span>AI</span><span>PPT</span>
+        </div>
+      </article>
+      <article class="project-card" data-tag="Web">
+        <div class="project-index">03</div>
         <h3>成绩追踪系统</h3>
-        <p>积分规则管理、排行榜、EdgeOne Pages部署的Web应用。</p>
-      </div>
+        <p>积分规则管理、排行榜 Web 应用，部署于 EdgeOne Pages。积分规则含录入加分、排名奖励、连续奖励递增等机制。</p>
+        <div class="project-tags">
+          <span>React</span><span>EdgeOne</span><span>Web</span>
+        </div>
+      </article>
+      <article class="project-card" data-tag="Knowledge">
+        <div class="project-index">04</div>
+        <h3>Obsidian Knowledge Base</h3>
+        <p>船舶规范标准数字化知识库，覆盖 CCS 船级规范、GB 国标等 PDF 结构化摄入，支持 wiki-ingest / wiki-query 全链路。</p>
+        <div class="project-tags">
+          <span>Obsidian</span><span>Wiki</span><span>PDF</span>
+        </div>
+      </article>
     </div>
   </section>
 
   <!-- 联系 -->
   <section id="contact" class="section">
-    <h2>联系我</h2>
-    <p>有问题或合作意向，欢迎留言！</p>
+    <div class="section-header">
+      <span class="section-tag">// CONTACT</span>
+      <h2>联系我</h2>
+      <div class="section-line"></div>
+    </div>
+    <p class="contact-desc">有问题或合作意向，欢迎留言。</p>
     <form id="contact-form">
-      <input type="text" placeholder="你的名字" required />
-      <input type="email" placeholder="邮箱地址" required />
-      <textarea placeholder="留言内容..." rows="4" required></textarea>
-      <button type="submit" class="btn">发送</button>
+      <div class="form-row">
+        <div class="form-group">
+          <label>NAME</label>
+          <input type="text" placeholder="你的名字" required />
+        </div>
+        <div class="form-group">
+          <label>EMAIL</label>
+          <input type="email" placeholder="邮箱地址" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>MESSAGE</label>
+        <textarea placeholder="留言内容..." rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">
+        <span>SEND</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
     </form>
     <p id="form-msg"></p>
   </section>
 
   <!-- 页脚 -->
   <footer>
-    <p>© 2026 个人测试网站 · Powered by Netlify</p>
+    <div class="footer-content">
+      <span class="footer-brand"><span class="bracket">&lt;</span>IC<span class="dot">.</span>Dev<span class="bracket">/&gt;</span></span>
+      <span class="footer-sep">|</span>
+      <span>© 2026 All rights reserved</span>
+      <span class="footer-sep">|</span>
+      <span>Powered by Netlify</span>
+    </div>
   </footer>
 
   <script src="script.js"></script>
